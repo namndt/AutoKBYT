@@ -173,7 +173,7 @@ USER_INFO = {
     'user8': {
         'id': 'VNW0015858',
         'name': 'Thùy',
-        'password': '05051995',
+        'password': 'Thuy@0605',
         'position_id': 1,
         'position_detail_id': 2
     }
