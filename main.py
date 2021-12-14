@@ -181,8 +181,8 @@ USER_INFO = {
 
 
 def line_notify(message):
-    # token = 'cQnS7ijpv0YqQrl7Fly7G3hvOMkuHD5IFDaRDHCmaLy'
-    token = '20yBTkYFBYUjp2OSxQI57KuLbuF4LEQd0jYGx2Wkkyy'
+    token = 'cQnS7ijpv0YqQrl7Fly7G3hvOMkuHD5IFDaRDHCmaLy'
+    # token = '20yBTkYFBYUjp2OSxQI57KuLbuF4LEQd0jYGx2Wkkyy'
     headers = {'Authorization': f'Bearer {token}'}
     data = {'message': message}
     response = requests.post(url='https://notify-api.line.me/api/notify', data=data, headers=headers)
