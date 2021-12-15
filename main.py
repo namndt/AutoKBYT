@@ -176,13 +176,27 @@ USER_INFO = {
         'password': 'Thuy@0605',
         'position_id': 1,
         'position_detail_id': 2
+    },
+    'user9': {
+        'id': 'VNW0009883',
+        'name': 'A Sáng',
+        'password': '22446688',
+        'position_id': 1,
+        'position_detail_id': 2
+    },
+    'user10': {
+        'id': 'VNW0002005',
+        'name': 'A Hùng',
+        'password': '888666',
+        'position_id': 1,
+        'position_detail_id': 2
     }
 }
 
 
 def line_notify(message):
-    token = 'cQnS7ijpv0YqQrl7Fly7G3hvOMkuHD5IFDaRDHCmaLy'
-    # token = '20yBTkYFBYUjp2OSxQI57KuLbuF4LEQd0jYGx2Wkkyy'
+    # token = 'cQnS7ijpv0YqQrl7Fly7G3hvOMkuHD5IFDaRDHCmaLy'
+    token = '20yBTkYFBYUjp2OSxQI57KuLbuF4LEQd0jYGx2Wkkyy'
     headers = {'Authorization': f'Bearer {token}'}
     data = {'message': message}
     response = requests.post(url='https://notify-api.line.me/api/notify', data=data, headers=headers)
