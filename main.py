@@ -91,7 +91,7 @@ USER_INFO = {
     'user11': {
         'id': 'VNW0008003',
         'name': 'C Hoài',
-        'password': '333333',
+        'password': '555555',
         'position_id': 1,
         'position_detail_id': 2,
         'position_areas': '99',
