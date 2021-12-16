@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "order": 1,
+      "nameVi": "Nghỉ luân phiên (về Đài Loan, ngày chủ nhật / quốc lễ)",
+      "nameEn": "Update",
+      "nameTw": "輪休(返台、常日班週日/國定假日)",
+      "createDate": "2021-06-22T19:50:23.5755166",
+      "status": 1
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "nameVi": "Xin nghỉ phép (có đơn xin nghỉ, nghỉ phép đặc biệt, nghỉ ốm / nghỉ việc riêng, v.v.)",
+      "nameEn": "Update",
+      "nameTw": "請假(有填請假單，如特休、病/事假等)",
+      "createDate": "2021-06-22T19:50:23.6129813",
+      "status": 1
+    }
+  ],
+  "total": 2
+}

@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "order": 1,
+      "nameVi": "Thân nhiệt",
+      "nameEn": "Update",
+      "nameTw": "身體溫度",
+      "isDefault": false,
+      "description": "測量體溫",
+      "createDate": "2021-06-22T19:50:29.351659",
+      "status": 1
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "nameVi": "Nhiệt độ trán",
+      "nameEn": "Update",
+      "nameTw": "額頭溫度",
+      "isDefault": true,
+      "description": "測量體溫",
+      "createDate": "2021-06-22T19:50:29.3896582",
+      "status": 1
+    }
+  ],
+  "total": 2
+}
