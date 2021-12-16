@@ -1,0 +1,94 @@
+{
+  "shifts": [
+    {
+      "value": "G0",
+      "nameVi": "Giờ hành chính",
+      "nameTw": "常日班",
+      "nameEn": null
+    },
+    {
+      "value": "EA",
+      "nameVi": "Ca sáng",
+      "nameTw": "早班",
+      "nameEn": null
+    },
+    {
+      "value": "EB",
+      "nameVi": "Ca trung",
+      "nameTw": "中班",
+      "nameEn": null
+    },
+    {
+      "value": "EC",
+      "nameVi": "Ca đêm",
+      "nameTw": "晚班",
+      "nameEn": null
+    }
+  ],
+  "holidayTypes": [
+    {
+      "value": "8X",
+      "nameVi": "Nghỉ cách ly",
+      "nameTw": "隔離假",
+      "nameEn": null
+    },
+    {
+      "value": "99",
+      "nameVi": "Nghỉ phép thông thường",
+      "nameTw": "一般請假",
+      "nameEn": null
+    }
+  ],
+  "quarantineAreas": [
+    {
+      "value": "HH",
+      "nameVi": "Tự cách ly tại nhà",
+      "nameTw": "居家隔離",
+      "nameEn": null
+    },
+    {
+      "value": "FF",
+      "nameVi": "Cách ly tại nhà F",
+      "nameTw": "F棟隔離",
+      "nameEn": null
+    },
+    {
+      "value": "FK",
+      "nameVi": "Cách ly tại hà K",
+      "nameTw": "K棟隔離",
+      "nameEn": null
+    },
+    {
+      "value": "FC",
+      "nameVi": "Cách ly tập trung FHS",
+      "nameTw": "組合屋隔離",
+      "nameEn": null
+    },
+    {
+      "value": "GG",
+      "nameVi": "Cách ly chỉ định nhà nước",
+      "nameTw": "政府指定",
+      "nameEn": null
+    }
+  ],
+  "positionAreas": [
+    {
+      "value": "FL",
+      "nameVi": "Khu sinh hoạt CTy",
+      "nameTw": "生活區",
+      "nameEn": null
+    },
+    {
+      "value": "FH",
+      "nameVi": "KTX gia đình",
+      "nameTw": "眷舍",
+      "nameEn": null
+    },
+    {
+      "value": "99",
+      "nameVi": "Nơi khác",
+      "nameTw": "其他",
+      "nameEn": null
+    }
+  ]
+}
