@@ -87,6 +87,14 @@ USER_INFO = {
         'position_id': 1,
         'position_detail_id': 2,
         'position_areas': '99',
+    },
+    'user11': {
+        'id': 'VNW0008003',
+        'name': 'C Hoài',
+        'password': '333333',
+        'position_id': 1,
+        'position_detail_id': 2,
+        'position_areas': '99',
     }
 }
 
@@ -185,6 +193,10 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] - %(message)s')
     logging.debug('Start')
     # declare()
+    s = ''
+    for idx, user in USER_INFO.items():
+        s += '{}({}), '.format(user['name'], user['id'])
+    logging.info('Danh sách khai báo: {}'.format(s))
     schedule.every().day.at('07:30').do(declare)
     while True:
         schedule.run_pending()
