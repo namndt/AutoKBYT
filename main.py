@@ -15,121 +15,6 @@ import sys
 from configparser import ConfigParser
 
 
-# USER_INFO = {
-#     'user1': {
-#         'id': 'VNW0014742',
-#         'name': 'TienNam',
-#         'password': 'p@ssw0rd',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user2': {
-#         'id': 'VNW0010805',
-#         'name': 'Giang',
-#         'password': '555666',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user3': {
-#         'id': 'VNW0011803',
-#         'name': 'TiểuLâm',
-#         'password': '123456',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user4': {
-#         'id': 'VNW0002643',
-#         'name': 'PyThông',
-#         'password': 'Th1791988@',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': 'FL',
-#     },
-#     'user5': {
-#         'id': 'VNW0001801',
-#         'name': 'A Thor',
-#         'password': 'A@09876',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user6': {
-#         'id': 'VNW0007441',
-#         'name': 'A Sỹ',
-#         'password': '888888',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': 'FL',
-#     },
-#     'user7': {
-#         'id': 'VNW0002008',
-#         'name': 'A Tiệp',
-#         'password': '19001520',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user8': {
-#         'id': 'VNW0002005',
-#         'name': 'A Hùng',
-#         'password': '888666',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': 'FL',
-#     },
-#     'user9': {
-#         'id': 'VNW0015858',
-#         'name': 'Thùy',
-#         'password': 'Thuy@0605',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user10': {
-#         'id': 'VNW0009883',
-#         'name': 'A Sáng',
-#         'password': '22446688',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user11': {
-#         'id': 'VNW0008003',
-#         'name': 'C Hoài',
-#         'password': '555555',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user12': {
-#         'id': 'VNW0003018',
-#         'name': 'C Hoa TB',
-#         'password': '05082035',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user13': {
-#         'id': 'VNW0016002',
-#         'name': 'E HaiBien',
-#         'password': '123456',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     },
-#     'user14': {
-#         'id': 'VNW0007437',
-#         'name': 'A Nguyên',
-#         'password': '14695551',
-#         'position_id': 1,
-#         'position_detail_id': 2,
-#         'position_areas': '99',
-#     }
-# }
-
 class Configuration():
     INI_FILE_NAME = 'settings.ini'
     application_path = Path(sys.executable).parent
@@ -153,8 +38,6 @@ class LineNotify():
         self.LINE_TOKEN = iniconfig.read('LINE_NOTIFY', 'line_token')
 
     def send_notify(self, message):
-        # token = 'cQnS7ijpv0YqQrl7Fly7G3hvOMkuHD5IFDaRDHCmaLy'
-        # token = '20yBTkYFBYUjp2OSxQI57KuLbuF4LEQd0jYGx2Wkkyy'
         headers = {'Authorization': f'Bearer {self.LINE_TOKEN}'}
         data = {'message': message}
         requests.post(url=self.LINE_API_URL, data=data, headers=headers)
