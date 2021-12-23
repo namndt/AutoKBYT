@@ -62,7 +62,7 @@ class ServiceBase(win32serviceutil.ServiceFramework):
         self.DECLARE_TIME = iniconfig.read('SETTING', 'declare_submit_time')
         self.USERS_AMOUNT = int(iniconfig.read('SETTING', 'number_of_user'))
         self.HOLIDAYS = iniconfig.read('HOLIDAY', 'hld')
-        
+
     def parse_command_line(cls):
         win32serviceutil.HandleCommandLine(cls)
 
@@ -120,7 +120,6 @@ class ServiceBase(win32serviceutil.ServiceFramework):
     
     def declare(self):
         dtNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        
         #isWork = True if datetime.now().isoweekday() in (1, 2, 3, 4, 5, 6) else False
         isWork = self.getIsWorkDay()
         
