@@ -61,7 +61,8 @@ class ServiceBase(win32serviceutil.ServiceFramework):
         self.DECLARE_URL = iniconfig.read('SETTING', 'declare_url')
         self.DECLARE_TIME = iniconfig.read('SETTING', 'declare_submit_time')
         self.USERS_AMOUNT = int(iniconfig.read('SETTING', 'number_of_user'))
-
+        self.HOLIDAYS = iniconfig.read('HOLIDAY', 'hld')
+        
     def parse_command_line(cls):
         win32serviceutil.HandleCommandLine(cls)
 
@@ -107,10 +108,22 @@ class ServiceBase(win32serviceutil.ServiceFramework):
         except:
             self.line.send_notify(f'Không lấy được token của {user}')
         return full_name, access_token
-
+    
+    def getIsWorkDay(self):
+        holiday = self.HOLIDAYS.split(',')
+        dtToDay = datetime.now().strftime('%Y-%m-%d')
+        result = True 
+        if datetime.now().isoweekday() == 7:  result = False 
+        if dtToDay in holiday: result = False 
+        
+        return result
+    
     def declare(self):
         dtNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        isWork = True if datetime.now().isoweekday() in (1, 2, 3, 4, 5, 6) else False
+        
+        #isWork = True if datetime.now().isoweekday() in (1, 2, 3, 4, 5, 6) else False
+        isWork = self.getIsWorkDay()
+        
         for i in range(self.USERS_AMOUNT):
             user = iniconfig.read(f'USER_{i + 1}', 'id')
             password = iniconfig.read(f'USER_{i + 1}', 'password')
