@@ -139,7 +139,7 @@ class ServiceBase(win32serviceutil.ServiceFramework):
                 'reasonId': None if isWork else 1,  # Lý do nghỉ. 1 cho nghỉ chủ nhật
                 'positionId': positionId,
                 'positionDetailId': positionDetailId,
-                "shifts": 'GO' if isWork else None,
+                "shifts": 'G0' if isWork else None,
                 "holidayTypes": None,
                 "quarantineAreas": None,
                 "positionAreas": positionAreas
