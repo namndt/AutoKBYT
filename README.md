@@ -1,3 +1,7 @@
+<p align="center">
+<a href="https://github.com/namndt/AutoKBYT/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/namndt/AutoKBYT"></a>
+<a href="https://github.com/namndt/AutoKBYT/releases/tag/v1.12.23"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/namndt/AutoKBYT"></a>
+ </p>
 # AutoKBYT
 Tự động khai báo nhiệt độ các ngày trong tuần, chủ nhật tự điền nghỉ ở nhà.
 
