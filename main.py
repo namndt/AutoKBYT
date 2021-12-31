@@ -87,9 +87,9 @@ class ServiceBase(win32serviceutil.ServiceFramework):
         return round(random.uniform(36, 36.5), 1)
 
     def get_access_token(self, user, password):
-        headers={
-            'Content-type':'application/json', 
-            'Accept':'application/json, text/plain, */*'
+        headers = {
+            'Content-type': 'application/json',
+            'Accept': 'application/json, text/plain, */*'
         }
         payload = {
             'username': user,
@@ -105,24 +105,26 @@ class ServiceBase(win32serviceutil.ServiceFramework):
             json_response = response.json()
             access_token = json_response['access_token']
             full_name = json_response['user']['fullName']
-        except:
+        except Exception:
             self.line.send_notify(f'Không lấy được token của {user}')
         return full_name, access_token
-    
+
     def getIsWorkDay(self):
         holiday = self.HOLIDAYS.split(',')
         dtToDay = datetime.now().strftime('%Y-%m-%d')
-        result = True 
-        if datetime.now().isoweekday() == 7:  result = False 
-        if dtToDay in holiday: result = False 
-        
+        result = True
+        if datetime.now().isoweekday() == 7:
+            result = False
+        if dtToDay in holiday:
+            result = False
+
         return result
-    
+
     def declare(self):
         dtNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        #isWork = True if datetime.now().isoweekday() in (1, 2, 3, 4, 5, 6) else False
+        # isWork = True if datetime.now().isoweekday() in (1, 2, 3, 4, 5, 6) else False
         isWork = self.getIsWorkDay()
-        
+
         for i in range(self.USERS_AMOUNT):
             user = iniconfig.read(f'USER_{i + 1}', 'id')
             password = iniconfig.read(f'USER_{i + 1}', 'password')
@@ -144,17 +146,17 @@ class ServiceBase(win32serviceutil.ServiceFramework):
                 "quarantineAreas": None,
                 "positionAreas": positionAreas
             }
-            detail = f'Nhiệt độ {temperature}, đi làm ca GO.' if isWork else f'Nghỉ ở nhà tại {positionId}/{positionDetailId}/{positionAreas}'
+            detail = f'Nhiệt độ {temperature}, đi làm ca G0.' if isWork else f'Nghỉ ở nhà tại {positionId}/{positionDetailId}/{positionAreas}'
             full_name, access_token = self.get_access_token(user=user, password=password)
             headers = {
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': 'Bearer {}'.format(access_token)
             }
             try:
                 response = requests.post(url=self.DECLARE_URL, data=json.dumps(payload), headers=headers)
                 logging.info(response.json())
                 self.line.send_notify('Khai báo cho {}: {}. Chi tiết: {}'.format(full_name, response.json(), detail))
-            except:
+            except Exception:
                 self.line.send_notify('Không thể khai báo cho {}({})'.format(full_name, user['name']))
 
     def start(self):
