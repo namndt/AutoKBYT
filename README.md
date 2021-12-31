@@ -1,6 +1,8 @@
 <p align="center">
 <a href="https://github.com/namndt/AutoKBYT/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/namndt/AutoKBYT"></a>
 <a href="https://github.com/namndt/AutoKBYT/releases/tag/v1.12.23"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/namndt/AutoKBYT"></a>
+<a href="https://github.com/namndt/AutoKBYT/graphs/contributors"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/namndt/AutoKBYT"></a>
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/namndt/AutoKBYT">
  </p>
 # AutoKBYT
 Tự động khai báo nhiệt độ các ngày trong tuần, chủ nhật tự điền nghỉ ở nhà.
