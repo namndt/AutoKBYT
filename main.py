@@ -1,5 +1,4 @@
 import requests
-import logging
 import json
 import random
 from datetime import datetime
@@ -99,15 +98,16 @@ class ServiceBase(win32serviceutil.ServiceFramework):
             "device": "android",
             "appId": 5
         }
-        full_name, access_token = None, None
+        full_name, access_token, json_response = None, None, None
         try:
             response = requests.post(url=self.ACCESS_TOKEN_URL, data=json.dumps(payload), headers=headers)
             json_response = response.json()
             access_token = json_response['access_token']
             full_name = json_response['user']['fullName']
         except Exception:
-            self.line.send_notify(f'Không lấy được token của {user}')
-        return full_name, access_token
+            self.line.send_notify(f'Không lấy được token của {user}: {json_response}')
+        finally:
+            return full_name, access_token
 
     def getIsWorkDay(self):
         holiday = self.HOLIDAYS.split(',')
@@ -147,17 +147,20 @@ class ServiceBase(win32serviceutil.ServiceFramework):
                 "positionAreas": positionAreas
             }
             detail = f'Nhiệt độ {temperature}, đi làm ca G0.' if isWork else f'Nghỉ ở nhà tại {positionId}/{positionDetailId}/{positionAreas}'
+
             full_name, access_token = self.get_access_token(user=user, password=password)
+            if full_name is None or access_token is None:
+                continue
             headers = {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer {}'.format(access_token)
             }
             try:
                 response = requests.post(url=self.DECLARE_URL, data=json.dumps(payload), headers=headers)
-                logging.info(response.json())
                 self.line.send_notify('Khai báo cho {}: {}. Chi tiết: {}'.format(full_name, response.json(), detail))
             except Exception:
                 self.line.send_notify('Không thể khai báo cho {}({})'.format(full_name, user['name']))
+                continue
 
     def start(self):
         self.is_alive = True
